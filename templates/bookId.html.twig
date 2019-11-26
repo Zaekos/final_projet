@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+        <p>{{ bookid.title }} contient {{ bookid.nbpages }} pages. C\'est un livre du type {{ bookid.style }}.</p>
+    {% if bookid.inStock %}
+        <p>Il est disponible actuellement.</p>
+    {% else %}
+        <p>Il est indisponible pour le moment.</p>
+    {% endif %}
+
+
+{% endblock %}

@@ -1,0 +1,7 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+    {% for bookid in book %}
+        <a href="{{ path('bookid', {'id':bookid.id}) }}"><p>{{ bookid.title }}</p></a>
+    {% endfor %}
+   <a href="{{ path ('author') }}">Go auteurs</a>
+{% endblock %}

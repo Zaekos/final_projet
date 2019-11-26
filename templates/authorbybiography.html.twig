@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+    {% block content %}
+
+        {% for authorid in author %}
+            <main>
+                <div class="namebio">
+                    <p>
+                        <a href="{{ path ('authorid', {'id':authorid.id}) }}"> {{ authorid.name }} {{ authorid.firstName }}</a>
+                    </p>
+                    <p>{{ authorid.biography }}</p>
+                </div>
+
+
+
+
+        {% endfor %}
+                <div class="go">
+                    <a href="{{ path ('book') }}">Go livre</a>
+                </div>
+            </main>
+    {% endblock %}

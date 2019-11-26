@@ -1,0 +1,7 @@
+{% extends 'base.html.twig' %}
+    {% block content %}
+        {% for authorid in author %}
+            <p><a href="{{ path ('authorid', {'id':authorid.id}) }}"> {{ authorid.name }} {{ authorid.firstName }}</p></a>
+        {% endfor %}
+        <a href="{{ path ('book') }}">Go livre</a>
+    {% endblock %}

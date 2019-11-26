@@ -1,0 +1,49 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+header {
+    padding: 10px;
+    display: flex;
+    background-color: #565656;
+    justify-content: center;
+
+}
+main {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 10px;
+    background-color: #868686;
+
+}
+.namebio {
+    width: 50%;
+    margin-left: 375px;
+    background-color: #e0e0e0;
+    border: solid 1px black ;
+    border-radius: 20px;
+
+}
+.go {
+    display: flex;
+    justify-content: center;
+    border: solid 1px black;
+    margin-top: 30px;
+    width: 10%;
+    margin-left: 650px;
+    background-color: #e0e0e0;
+    border-radius: 50px;
+
+}
+
+
+
+
+
+footer {
+    padding: 10px;
+    display: flex;
+    background-color: #565656;
+    justify-content: center;
+}
