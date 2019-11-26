@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+    <p>Merci, votre auteur est bien enregistré :</p>
+    <ul>
+        <li>{{ author.name }}</li>
+        <li>{{ author.firstName }}</li>
+        <li>{{ author.birthDate|date ('d/m/Y') }}</li>
+        <li>{{ author.deathDate|date ('d/m/Y') }}</li>
+        <li>{{ author.biography }}</li>
+    </ul>
+{% endblock %}

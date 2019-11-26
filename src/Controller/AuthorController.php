@@ -1,7 +1,9 @@
 <?php
 namespace App\Controller;
 
+use App\Entity\Author;
 use App\Repository\AuthorRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -26,7 +28,7 @@ class AuthorController extends AbstractController
     }
 
     /**
-     * @Route("/author/{id}" , name="authorid")
+     * @Route("/author/show/{id}" , name="authorid")
      */
 
     public function AuthorID(AuthorRepository $authorRepository, $id)
@@ -57,6 +59,34 @@ class AuthorController extends AbstractController
             'author' => $authors,
             'title' => $word
         ]);
+
+    }
+    /**
+     * @Route("/author/insert", name="author_insert")
+     */
+    public function insertBook(EntityManagerInterface $entityManager)
+    {
+        //insérer dans la table author un nouveau auteur
+        $title = 'Insertion de l\'auteur';
+
+
+
+        $author = new Author();
+        $author->setName('Gourcuff');
+        $author->setFirstName('Yohan');
+        $author->setBirthDate(new \DateTime('2009-04-10'));
+        $author->setDeathDate(new \DateTime('2010-10-08'));
+        $author->setBiography('Salut tout le monde');
+
+        $entityManager->persist($author);
+        $entityManager->flush();
+
+        return $this->render('insertauthor.html.twig',[
+            'title' => $title,
+            'author' => $author
+        ]);
+
+
 
     }
 }

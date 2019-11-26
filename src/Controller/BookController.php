@@ -1,7 +1,9 @@
 <?php
 namespace App\Controller;
 
+use App\Entity\Book;
 use App\Repository\BookRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -27,7 +29,7 @@ class BookController extends AbstractController
         ]);
     }
         /**
-         * @Route("/book/{id}" , name="bookid")
+         * @Route("/book/show/{id}" , name="bookid")
          */
 
     public function BookId(BookRepository $bookRepository, $id)
@@ -54,6 +56,34 @@ class BookController extends AbstractController
         // Appelle la méthode qu'on a créée dans le bookRepository ("getByStyle")
         // Cette méthode est censée nous retourner tous les livres en fonction d'un genre
         // Elle va donc excecuter une requete SELECT en base de données
+    }
+
+    /**
+     * @Route("/book/insert", name="book_insert")
+     */
+    public function insertBook(EntityManagerInterface $entityManager)
+    {
+        //insérer dans la table book un nouveau livre
+        $title = 'Insertion du livre';
+
+
+
+        $book = new Book();
+        $book->setTitle('La biterie');
+        $book->setStyle('escroquerie');
+        $book->setInStock(true);
+        $book->setNbpages(223);
+
+        $entityManager->persist($book);
+        $entityManager->flush();
+
+        return $this->render('insertbook.html.twig',[
+            'title' => $title,
+            'book' => $book
+        ]);
+
+
+
     }
 
 
