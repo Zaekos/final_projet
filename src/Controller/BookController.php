@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Entity\Book;
+use App\Form\BookType;
 use App\Repository\BookRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -23,7 +24,7 @@ class BookController extends AbstractController
         //Les repositorys en général servent à faire les requêtes select dans les tables
         $book = $bookRepository->findAll();
         //méthode render qui permet d'afficher mon fichier html.twig, et le résultat de ma requëte SQL
-        return $this->render('book.html.twig', [
+        return $this->render('book/book.html.twig', [
             'book' => $book,
             'title' => $title
         ]);
@@ -36,7 +37,7 @@ class BookController extends AbstractController
     {
         $title = 'Description du livre';
         $bookid = $bookRepository -> find($id);
-        return $this->render('bookId.html.twig', [
+        return $this->render('book/bookId.html.twig', [
             'bookid' => $bookid,
             'title' => $title
 
@@ -77,7 +78,7 @@ class BookController extends AbstractController
         $entityManager->persist($book);
         $entityManager->flush();
 
-        return $this->render('insertbook.html.twig',[
+        return $this->render('book/insertbook.html.twig',[
             'title' => $title,
             'book' => $book
         ]);
@@ -85,7 +86,68 @@ class BookController extends AbstractController
 
 
     }
+    // pouvoir supprimer un book en bdd
+    /**
+     * @Route("/book/delete", name="book_delete")
+     */
+    public function deleteBook(BookRepository $bookRepository, EntityManagerInterface $entityManager)
+    {
+        $title = 'Suppression du livre';
+        // Je récupère un enregistrement book en BDD grâce au repository de book
+        $book = $bookRepository->find(2);
+        // j'utilise l'entity manager avec la méthode remove pour enregistrer
+        // la suppression du book dans l'unité de travail
+        $entityManager->remove($book);
+        // je valide la suppression en bdd avec la méthode flush
+        $entityManager->flush();
 
+        return $this->render('book/deletebook.html.twig', [
+            'book' => $book,
+            'title' => $title
+        ]);
+    }
+    /**
+     * @Route("/book/update{id}", name="book_update")
+     */
+    public function updateBook(BookRepository $bookRepository, EntityManagerInterface $entityManager, $id)
+    {
+        // j'utilise le Repository de l'entité Book pour récupérer un livre
+        // en fonction de son id
+        $book = $bookRepository->find($id);
+        // Je donne un nouveau titre à mon entité Book
+        $book->setTitle('Les 11 clés du succès');
+        $book->setStyle('Magie');
+        // je re-enregistre mon livre en BDD avec l'entité manager
+        $entityManager->persist($book);
+        $entityManager->flush();
 
+        return $this->redirectToRoute('book');
+    }
+    /**
+     * @Route("/book/insert_form", name="book_insert_form")
+     */
+    public function insertBookForm()
+    {
+        // J'utilise le gabarit de formulaire pour créer mon formulaire
+        // j'envoie mon formulaire à un fichier twig
+        // et je l'affiche
+        // je crée un nouveau Book,
+        // en créant une nouvelle instance de l'entité Book
+        $title = 'Formulaire de livre';
+        $book = new Book();
+        // J'utilise la méthode createForm pour créer le gabarit / le constructeur de
+        // formulaire pour le Book : BookType (que j'ai généré en ligne de commandes)
+        // Et je lui associe mon entité Book vide
+        $bookForm = $this->createForm(BookType::class, $book);
+        // à partir de mon gabarit, je crée la vue de mon formulaire
+        $bookFormView = $bookForm->createView();
+        // je retourne un fichier twig, et je lui envoie ma variable qui contient
+        // mon formulaire
+        return $this->render('book/insert_book_form.html.twig', [
+            'bookFormView' => $bookFormView,
+            'title' => $title
+
+        ]);
+    }
 
 }

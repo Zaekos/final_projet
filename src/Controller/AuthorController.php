@@ -20,7 +20,7 @@ class AuthorController extends AbstractController
     {
         $title = 'Liste des auteurs';
         $author = $authorRepository->findAll();
-        return $this->render('author.html.twig',[
+        return $this->render('author/author.html.twig',[
             'author' => $author,
             'title' => $title
         
@@ -35,7 +35,7 @@ class AuthorController extends AbstractController
     {
         $title = 'Description de l\' auteur ';
         $authorid = $authorRepository -> find($id);
-        return $this->render('authorId.html.twig', [
+        return $this->render('author/authorId.html.twig', [
             'title' => $title,
             'authorid' => $authorid
 
@@ -55,7 +55,7 @@ class AuthorController extends AbstractController
         //j'appelle la méthode getauthorbybiography de mon repository avec en parametre les mot entré dans l'url par l'uilisateur
         $authors = $authorRepository->getByBiography($word);
 
-        return $this->render('authorbybiography.html.twig' , [
+        return $this->render('author/authorbybiography.html.twig' , [
             'author' => $authors,
             'title' => $word
         ]);
@@ -81,7 +81,7 @@ class AuthorController extends AbstractController
         $entityManager->persist($author);
         $entityManager->flush();
 
-        return $this->render('insertauthor.html.twig',[
+        return $this->render('author/insertauthor.html.twig',[
             'title' => $title,
             'author' => $author
         ]);
@@ -89,5 +89,40 @@ class AuthorController extends AbstractController
 
 
     }
+    // pouvoir supprimer un book en bdd
+    /**
+     * @Route("/author/delete{id}", name="author_delete")
+     */
+    public function deleteBook(AuthorRepository $authorRepository, EntityManagerInterface $entityManager, $id)
+    {
+        $title = 'Suppression de l\'auteur';
+        // Je récupère un enregistrement author en BDD grâce au repository de author
+        $author = $authorRepository->find($id);
+        // j'utilise l'entity manager avec la méthode remove pour enregistrer
+        // la suppression de l'author dans l'unité de travail
+        $entityManager->remove($author);
+        // je valide la suppression en bdd avec la méthode flush
+        $entityManager->flush();
+
+        return $this->redirectToRoute('author');
+    }
+    /**
+     * @Route("/author/update{id}", name="author_update")
+     */
+    public function updateAuthor(AuthorRepository $authorRepository, EntityManagerInterface $entityManager, $id)
+    {
+        // j'utilise le Repository de l'entité Book pour récupérer un livre
+        // en fonction de son id
+        $author = $authorRepository->find($id);
+        // Je donne un nouveau titre à mon entité Book
+        $author->setName('Jean-Claude');
+        $author->setFirstName('Van Dammmn');
+        // je re-enregistre mon livre en BDD avec l'entité manager
+        $entityManager->persist($author);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('author');
+    }
 }
+
 

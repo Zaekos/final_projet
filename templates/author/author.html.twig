@@ -1,7 +1,9 @@
-{% extends 'base.html.twig' %}
+{% extends '../base.html.twig' %}
     {% block content %}
         {% for authorid in author %}
             <p><a href="{{ path ('authorid', {'id':authorid.id}) }}"> {{ authorid.name }} {{ authorid.firstName }}</p></a>
+            <a href="{{ path ('author_delete', {'id':authorid.id}) }}">Supprimer</a>
+            <a href="{{ path ('author_update', {'id':authorid.id}) }}">Update</a>
         {% endfor %}
         <a href="{{ path ('book') }}">Go livre</a>
     {% endblock %}
