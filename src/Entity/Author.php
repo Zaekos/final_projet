@@ -88,7 +88,7 @@ class Author
         return $this->deathDate;
     }
 
-    public function setDeathDate(\DateTimeInterface $deathDate): self
+    public function setDeathDate(\DateTimeInterface $deathDate = null): self
     {
         $this->deathDate = $deathDate;
 

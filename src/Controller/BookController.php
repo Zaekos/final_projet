@@ -107,26 +107,28 @@ class BookController extends AbstractController
         ]);
     }
     /**
-     * @Route("/book/update{id}", name="book_update")
+     * @Route("/book/update/{id}", name="book_update")
      */
     public function updateBook(BookRepository $bookRepository, EntityManagerInterface $entityManager, $id)
     {
         // j'utilise le Repository de l'entité Book pour récupérer un livre
-        // en fonction de son id
+        //en fonction de son id
         $book = $bookRepository->find($id);
-        // Je donne un nouveau titre à mon entité Book
+         //Je donne un nouveau titre à mon entité Book
         $book->setTitle('Les 11 clés du succès');
         $book->setStyle('Magie');
-        // je re-enregistre mon livre en BDD avec l'entité manager
+         //je re-enregistre mon livre en BDD avec l'entité manager
         $entityManager->persist($book);
         $entityManager->flush();
 
-        return $this->redirectToRoute('book');
+       return $this->redirectToRoute('book');
     }
+
+
     /**
      * @Route("/book/insert_form", name="book_insert_form")
      */
-    public function insertBookForm()
+    public function insertBookForm(Request $request, EntityManagerInterface $entityManager)
     {
         // J'utilise le gabarit de formulaire pour créer mon formulaire
         // j'envoie mon formulaire à un fichier twig
@@ -139,15 +141,58 @@ class BookController extends AbstractController
         // formulaire pour le Book : BookType (que j'ai généré en ligne de commandes)
         // Et je lui associe mon entité Book vide
         $bookForm = $this->createForm(BookType::class, $book);
+        // Si je suis sur une méthode POST
+        // donc qu'un formulaire a été envoyé
+        if ($request->isMethod('Post')) {
+            // Je récupère les données de la requête (POST)
+            // et je les associe à mon formulaire
+            $bookForm->handleRequest($request);
+            // Si les données de mon formulaire sont valides
+            // (que les types rentrés dans les inputs sont bons,
+            // que tous les champs obligatoires sont remplis etc)
+            if ($bookForm->isValid()) {
+                // J'enregistre en BDD ma variable $book
+                // qui n'est plus vide, car elle a été remplie
+                // avec les données du formulaire
+                $entityManager->persist($book);
+                $entityManager->flush();
+            }
+        }
         // à partir de mon gabarit, je crée la vue de mon formulaire
         $bookFormView = $bookForm->createView();
         // je retourne un fichier twig, et je lui envoie ma variable qui contient
         // mon formulaire
-        return $this->render('book/insert_book_form.html.twig', [
+        return $this->render('book/book_form.html.twig', [
             'bookFormView' => $bookFormView,
             'title' => $title
 
         ]);
     }
+    /**
+     * @Route("/book/update_form", name="book_update_form")
+     */
+    public function updateBookForm(BookRepository $bookRepository, Request $request, EntityManagerInterface $entityManager)
+    {
+        $title = 'Formulaire de mis à jour d\'un livre';
+        $book = $bookRepository->find(2);
+        $bookForm = $this->createForm(BookType::class, $book);
+        if ($request->isMethod('Post'))
+        {
+            $bookForm->handleRequest($request);
+            if ($bookForm->isValid()) {
+                $entityManager->persist($book);
+                $entityManager->flush();
+            }
+        }
+        // à partir de mon gabarit, je crée la vue de mon formulaire
+        $bookFormView = $bookForm->createView();
+        // je retourne un fichier twig, et je lui envoie ma variable qui contient
+        // mon formulaire
+        return $this->render('book/book_form.html.twig', [
+            'bookFormView' => $bookFormView,
+            'title' => $title
+        ]);
+    }
+
 
 }
