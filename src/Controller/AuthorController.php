@@ -17,6 +17,20 @@ class AuthorController extends AbstractController
      * @Route("/author", name="author")
      */
 
+    public function AuthorList(AuthorRepository $authorRepository)
+    {
+        $title = 'Liste des auteurs';
+        $author = $authorRepository->findAll();
+        return $this->render('author/author_public.html.twig',[
+            'author' => $author,
+            'title' => $title
+
+        ]);
+    }
+    /**
+     * @Route("/admin/author", name="author_admin")
+     */
+
     public function AuthorDbList(AuthorRepository $authorRepository)
     {
         $title = 'Liste des auteurs';
@@ -63,7 +77,7 @@ class AuthorController extends AbstractController
 
     }
     /**
-     * @Route("/author/insert", name="author_insert")
+     * @Route("/admin/author/insert", name="author_insert")
      */
     public function insertBook(EntityManagerInterface $entityManager)
     {
@@ -92,7 +106,7 @@ class AuthorController extends AbstractController
     }
     // pouvoir supprimer un book en bdd
     /**
-     * @Route("/author/delete{id}", name="author_delete")
+     * @Route("/admin/author/delete{id}", name="author_delete")
      */
     public function deleteBook(AuthorRepository $authorRepository, EntityManagerInterface $entityManager, $id)
     {
@@ -105,10 +119,10 @@ class AuthorController extends AbstractController
         // je valide la suppression en bdd avec la méthode flush
         $entityManager->flush();
 
-        return $this->redirectToRoute('author');
+        return $this->redirectToRoute('author_admin');
     }
     /**
-     * @Route("/author/update/{id}", name="author_update")
+     * @Route("/admin/author/update/{id}", name="author_update")
      */
     public function updateAuthor(AuthorRepository $authorRepository, EntityManagerInterface $entityManager, $id)
     {
@@ -126,7 +140,7 @@ class AuthorController extends AbstractController
     }
 
     /**
-     * @Route("/author/insert_form", name="author_insert_form")
+     * @Route("/admin/author/insert_form", name="author_insert_form")
      */
     public function insertAuthorForm(Request $request, EntityManagerInterface $entityManager)
     {
@@ -169,12 +183,12 @@ class AuthorController extends AbstractController
         ]);
     }
     /**
-     * @Route("/author/update_form", name="author_update_form")
+     * @Route("/admin/author/update_form/{id}", name="author_update_form")
      */
-    public function updateAuthorForm(AuthorRepository $authorRepository, Request $request, EntityManagerInterface $entityManager)
+    public function updateAuthorForm(AuthorRepository $authorRepository, Request $request, EntityManagerInterface $entityManager, $id)
     {
         $title = 'Formulaire de mis à jour d\un auteur';
-        $author = $authorRepository->find(2);
+        $author = $authorRepository->find($id);
         $authorForm = $this->createForm(AuthorType::class, $author);
         if ($request->isMethod('Post'))
         {

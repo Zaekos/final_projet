@@ -1,6 +1,9 @@
-{% extends '../base.html.twig' %}
+{% extends 'base.html.twig' %}
 {% block content %}
+    <div class="liste">
     <p>Merci, votre auteur est bien enregistré :</p>
+    </div>
+    <div class="liste">
     <ul>
         <li>{{ author.name }}</li>
         <li>{{ author.firstName }}</li>
@@ -8,4 +11,5 @@
         <li>{{ author.deathDate|date ('d/m/Y') }}</li>
         <li>{{ author.biography }}</li>
     </ul>
+    </div>
 {% endblock %}

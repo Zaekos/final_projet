@@ -2,24 +2,38 @@ body {
     margin: 0;
     padding: 0;
 }
+h1 {
+    color: ;
+}
 header {
     padding: 10px;
     display: flex;
-    background-color: #565656;
+    background-color: #F5871F;
     justify-content: center;
+
 
 }
 main {
     display: flex;
     flex-direction: column;
     text-align: center;
-    padding: 10px;
-    background-color: #868686;
+    padding: 100px;
+    background-color: aqua;
+    align-items: center;
+
+
+}
+.liste {
+    background-color: white;
+    width: 25%;
+    margin-bottom: 10px;
+    border: solid 1px black;
+    border-radius: 10px;
 
 }
 .namebio {
     width: 50%;
-    margin-left: 375px;
+
     background-color: #e0e0e0;
     border: solid 1px black ;
     border-radius: 20px;
@@ -31,11 +45,16 @@ main {
     border: solid 1px black;
     margin-top: 30px;
     width: 10%;
-    margin-left: 650px;
     background-color: #e0e0e0;
     border-radius: 50px;
 
+
 }
+a {
+    text-decoration: none;
+    color: black;
+}
+
 
 
 
@@ -44,6 +63,6 @@ main {
 footer {
     padding: 10px;
     display: flex;
-    background-color: #565656;
+    background-color: #F5871F;
     justify-content: center;
 }

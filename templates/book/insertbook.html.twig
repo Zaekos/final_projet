@@ -1,6 +1,9 @@
-{% extends '../base.html.twig' %}
+{% extends 'base.html.twig' %}
 {% block content %}
+    <div class="liste">
     <p>Merci, votre livre est bien enregistré :</p>
+    </div>
+    <div class="liste">
     <ul>
         <li>{{ book.title }}</li>
         <li>{{ book.style }}</li>
@@ -12,4 +15,5 @@
             </li>
         <li>{{ book.nbpages }}</li>
     </ul>
+    </div>
 {% endblock %}

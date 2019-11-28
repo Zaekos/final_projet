@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+    {% for bookid in book %}
+        <div class="liste">
+        <a href="{{ path('bookid', {'id':bookid.id}) }}"><p>{{ bookid.title }}</p></a>
+        </div>
+    {% endfor %}
+    <div class="go">
+    <a href="{{ path ('author') }}">Go auteurs</a>
+    </div>
+{% endblock %}
