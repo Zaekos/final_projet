@@ -26,6 +26,7 @@ class Book
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\PositiveOrZero(message="Un livre n'a pas un nombre de page négatif !")
      */
     private $nbpages;
 
@@ -36,6 +37,10 @@ class Book
 
     /**
      * @ORM\Column(type="boolean")
+     * @Assert\Type(
+     *     type="boolean",
+     *     message="Merci de ne pas toucher au type d'entrée."
+     * )
      */
     private $in_stock;
 

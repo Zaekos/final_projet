@@ -2,7 +2,9 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 //J'utilise l'annotation ORM pour déclarer une antité
 /**
@@ -19,26 +21,33 @@ class Author
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Le champ est vide.")
      */
     private $name;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Le champ est vide.")
      */
     private $firstName;
 
     /**
      * @ORM\Column(type="date")
+     * @Assert\Date(message="Le champ Date doit être noté (Y-m-d)")
+     * @var string A "Y-m-d" formatted value
      */
     private $birthDate;
 
     /**
      * @ORM\Column(type="date", nullable=true)
+     * @Assert\Date
+     * @var string A "Y-m-d" formatted value
      */
     private $deathDate;
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotBlank(message="Le champ est vide.")
      */
     private $biography;
 

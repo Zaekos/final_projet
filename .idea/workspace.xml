@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5682a51a-074b-4e73-bd4e-ca27788cde9f" name="Default Changelist" comment="">
+    <list default="true" id="5682a51a-074b-4e73-bd4e-ca27788cde9f" name="Default Changelist" comment="maj">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/BookController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/BookController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Author.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Author.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Book.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Book.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/BookType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/BookType.php" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -134,7 +131,13 @@
   </component>
   <component name="ProjectId" id="1Tve2WdnHooXWRj4Y9aQKP7zNsU" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -144,6 +147,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -151,15 +155,15 @@
       <recent name="$PROJECT_DIR$/templates/book" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
+  <component name="ServiceViewManager">
+    <option name="viewStates">
       <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
       </list>
     </option>
   </component>
@@ -174,7 +178,8 @@
       <option name="presentableId" value="Default" />
       <updated>1574344789578</updated>
       <workItem from="1574344790780" duration="64130000" />
-      <workItem from="1575120377181" duration="2259000" />
+      <workItem from="1575120377181" duration="4828000" />
+      <workItem from="1575288610047" duration="3569000" />
     </task>
     <task id="LOCAL-00001" summary="maj">
       <created>1574781616897</created>
@@ -197,7 +202,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574938360615</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="maj">
+      <created>1575280624426</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1575280624426</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -219,5 +231,19 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="maj" />
     <option name="LAST_COMMIT_MESSAGE" value="maj" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="314" y="23" width="812" height="811" key="CommitChangelistDialog2" timestamp="1575297088347">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="314" y="23" width="812" height="811" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1575297088347" />
+    <state x="229" y="89" key="SettingsEditor" timestamp="1575297121515">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="229" y="89" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1575297121515" />
+    <state x="399" y="259" key="com.intellij.ide.util.TipDialog" timestamp="1575288629489">
+      <screen x="0" y="23" width="1440" height="808" />
+    </state>
+    <state x="399" y="259" key="com.intellij.ide.util.TipDialog/0.23.1440.808@0.23.1440.808" timestamp="1575288629489" />
   </component>
 </project>
