@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'baseadmin.html.twig' %}
 {% block content %}
     {% for bookid in book %}
         <div class="liste">
@@ -15,6 +15,6 @@
         </div>
     {% endfor %}
     <div class="go">
-   <a href="{{ path ('author') }}">Go auteurs</a>
+   <a href="{{ path ('author_admin') }}">Go auteurs</a>
     </div>
 {% endblock %}

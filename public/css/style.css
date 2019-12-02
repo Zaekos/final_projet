@@ -54,15 +54,70 @@ a {
     text-decoration: none;
     color: black;
 }
+.author_form {
+    display: flex;
+    flex-direction: column;
+}
 
 
+
+.book_form {
+     display: flex;
+     flex-direction: column;
+ }
+.book_input_title {
+    padding: 10px;
+}
+.book_input_style {
+    padding: 10px;
+}
+.book_input_author {
+    padding: 10px;
+}
+.book_input_nbpages {
+    padding: 10px;
+}
+.book_input_instock {
+    margin: 10px;
+}
+
+
+
+.author_form {
+    display: flex;
+    flex-direction: column;
+}
+.author_input_name {
+    padding: 10px;
+}
+.author_input_firstName {
+    padding: 10px;
+}
+.author_input_birthDate {
+    padding: 10px;
+}
+.author_input_deathDate {
+    padding: 10px;
+}
+.author_input_biography {
+    padding: 10px;
+}
+.author_input_ddwidget {
+    margin-bottom: 10px;
+}
+.author_input_bwidget {
+    margin-top: 10px;
+}
+.author_input_envoyer {
+    margin-top: 10px;
+}
 
 
 
 
 footer {
-    padding: 10px;
     display: flex;
+    justify-content: space-around;
+    padding: 10px;
     background-color: #F5871F;
-    justify-content: center;
 }

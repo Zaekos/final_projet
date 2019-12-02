@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5682a51a-074b-4e73-bd4e-ca27788cde9f" name="Default Changelist" comment="">
+    <list default="true" id="5682a51a-074b-4e73-bd4e-ca27788cde9f" name="Default Changelist" comment="v">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Author.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Author.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Book.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Book.php" afterDir="false" />
@@ -180,7 +180,7 @@
       <updated>1574344789578</updated>
       <workItem from="1574344790780" duration="64130000" />
       <workItem from="1575120377181" duration="4828000" />
-      <workItem from="1575288610047" duration="8644000" />
+      <workItem from="1575288610047" duration="8808000" />
     </task>
     <task id="LOCAL-00001" summary="maj">
       <created>1574781616897</created>
@@ -238,7 +238,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575297256215</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="maj">
+      <created>1575311447611</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1575311447611</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -262,21 +269,22 @@
     <option name="LAST_COMMIT_MESSAGE" value="maj" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="314" y="23" width="812" height="811" key="CommitChangelistDialog2" timestamp="1575297256081">
+    <state x="314" y="23" width="812" height="811" key="CommitChangelistDialog2" timestamp="1575311692530">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="314" y="23" width="812" height="811" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1575297256081" />
+    <state x="314" y="23" width="812" height="811" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1575311692530" />
     <state x="229" y="89" key="SettingsEditor" timestamp="1575297121515">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="229" y="89" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1575297121515" />
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1575297257655">
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1575311449142">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1575297257655" />
-    <state x="399" y="259" key="com.intellij.ide.util.TipDialog" timestamp="1575288629489">
-      <screen x="0" y="23" width="1440" height="808" />
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1575311449142" />
+    <state x="399" y="263" key="com.intellij.ide.util.TipDialog" timestamp="1575311722059">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state x="399" y="263" key="com.intellij.ide.util.TipDialog/0.0.1440.900@0.0.1440.900" timestamp="1575311722059" />
     <state x="399" y="259" key="com.intellij.ide.util.TipDialog/0.23.1440.808@0.23.1440.808" timestamp="1575288629489" />
     <state x="312" y="45" width="816" height="810" key="find.popup" timestamp="1575302819627">
       <screen x="0" y="0" width="1440" height="900" />

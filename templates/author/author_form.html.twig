@@ -1,4 +1,46 @@
-{% extends 'base.html.twig' %}
-{% block form %}
-    {{ form(authorFormView) }}
+{% extends 'baseadmin.html.twig' %}
+
+{# je crée le html de mon formulaire (balise form, input etc) en utilisant la fonction
+ form() avec en parametre ma variable de formulaire  #}
+{#{{ form(bookFormView) }}#}
+
+
+{% block content %}
+
+    {# j'utilise la fonction form_start pour insérer la balise form #}
+    {{ form_start(authorFormView, { 'attr': {'class': 'author_form'} }) }}
+
+    {# j'utilise les fonctions form_errors, form_label et form_widget
+     pour afficher respectivement les erreurs, le label et l'input pour
+     mon champs title #}
+    {{ form_errors(authorFormView.name, { 'attr': {'class': 'author_input_name'} }) }}
+    {{ form_label(authorFormView.name, 'Nom', { 'label_attr': {'class': 'author_input_name'} }) }}
+
+    {# j'utilise le parametre 'attr' pour pouvoir attribuer une classe css
+     à mon input #}
+    {{ form_widget(authorFormView.name, { 'attr': {'class': 'author_input'} }) }}
+
+    {{ form_errors(authorFormView.firstName, { 'attr': {'class': 'author_input_firstName'} }) }}
+    {{ form_label(authorFormView.firstName, 'Prénom',{ 'label_attr': {'class': 'author_input_firstName'} }) }}
+    {{ form_widget(authorFormView.firstName, { 'attr': {'class': 'author_input'} }) }}
+
+    {{ form_errors(authorFormView.birthDate, { 'attr': {'class': 'author_input_birthDate'} }) }}
+    {{ form_label(authorFormView.birthDate, 'Date de naissance', { 'label_attr': {'class': 'author_input_birthDate'} }) }}
+    {{ form_widget(authorFormView.birthDate, { 'attr': {'class': 'author_input'} }) }}
+
+    {{ form_errors(authorFormView.deathDate, { 'attr': {'class': 'author_input_deathDate'} }) }}
+    {{ form_label(authorFormView.deathDate, 'Date de décés', { 'label_attr': {'class': 'author_input_deathDate'} }) }}
+    {{ form_widget(authorFormView.deathDate, { 'attr': {'class': 'author_input_ddwidget'} }) }}
+
+    {{ form_errors(authorFormView.biography, { 'attr': {'class': 'author_input_biography'} }) }}
+    {{ form_label(authorFormView.biography, 'Biographie', { 'label_°attr': {'class': 'author_input_biography'} }) }}
+    {{ form_widget(authorFormView.biography, { 'attr': {'class': 'author_input_bwidget'} }) }}
+
+    {{ form_label(authorFormView.Envoyer, 'Envoyer', { 'label_attr': {'class': 'author_input_envoyer'} }) }}
+    {{ form_widget(authorFormView.Envoyer, { 'attr': {'class': 'author_input_envoyer'} }) }}
+
+    {# j'utilise la fonction form_end pour insérer la fermeture de la balise form #}
+
+    {{ form_end(authorFormView) }}
+
 {% endblock %}

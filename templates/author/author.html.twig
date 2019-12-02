@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'baseadmin.html.twig' %}
     {% block content %}
         {% for authorid in author %}
             <div class="liste">
@@ -16,6 +16,6 @@
             <a href="{{ path('author_insert_form') }}">Ajouter un auteur</a>
         </div>
         <div class="go">
-        <a href="{{ path ('book') }}">Go livre</a>
+        <a href="{{ path ('book_admin') }}">Go livre</a>
         </div>
     {% endblock %}

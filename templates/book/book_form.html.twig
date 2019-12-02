@@ -1,4 +1,45 @@
-{% extends 'base.html.twig' %}
-{% block form %}
-{{ form(bookFormView) }}
+{% extends 'baseadmin.html.twig' %}
+
+{# je crée le html de mon formulaire (balise form, input etc) en utilisant la fonction
+ form() avec en parametre ma variable de formulaire  #}
+{#{{ form(bookFormView) }}#}
+
+
+{% block content %}
+
+    {# j'utilise la fonction form_start pour insérer la balise form #}
+    {{ form_start(bookFormView,  { 'attr': {'class': 'book_form'} }) }}
+
+    {# j'utilise les fonctions form_errors, form_label et form_widget
+     pour afficher respectivement les erreurs, le label et l'input pour
+     mon champs title #}
+    {{ form_errors(bookFormView.title, { 'attr': {'class': 'book_input_title'} }) }}
+    {{ form_label(bookFormView.title, 'Titre', { 'label_attr': {'class': 'book_input_title'} }) }}
+
+    {# j'utilise le parametre 'attr' pour pouvoir attribuer une classe css
+     à mon input #}
+    {{ form_widget(bookFormView.title, { 'attr': {'class': 'book_input'} }) }}
+
+    {{ form_errors(bookFormView.style, { 'attr': {'class': 'book_input_style'} }) }}
+    {{ form_label(bookFormView.style, 'Style', { 'attr': {'label_class': 'book_input_style'} }) }}
+    {{ form_widget(bookFormView.style, { 'attr': {'class': 'book_input'} }) }}
+
+    {{ form_errors(bookFormView.author, { 'attr': {'class': 'book_input_author'} }) }}
+    {{ form_label(bookFormView.author, 'Auteur', { 'label_attr': {'class': 'book_input_author'} }) }}
+    {{ form_widget(bookFormView.author, { 'attr': {'class': 'book_input'} }) }}
+
+    {{ form_errors(bookFormView.nbpages, { 'attr': {'class': 'book_input_nbpages'} }) }}
+    {{ form_label(bookFormView.nbpages, 'Nombres de pages', { 'label_attr': {'class': 'book_input_nbpages'} }) }}
+    {{ form_widget(bookFormView.nbpages, { 'attr': {'class': 'book_input'} }) }}
+
+    {{ form_row(bookFormView.in_stock, { 'attr': {'class': 'book_input_instock'} }) }}
+
+
+    {{ form_label(bookFormView.Envoyer, 'Envoyer', { 'label_attr': {'class': 'book_input_envoyer'} }) }}
+    {{ form_widget(bookFormView.Envoyer, { 'attr': {'class': 'book_input'} }) }}
+
+    {# j'utilise la fonction form_end pour insérer la fermeture de la balise form #}
+
+    {{ form_end(bookFormView) }}
+
 {% endblock %}
