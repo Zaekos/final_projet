@@ -2,22 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5682a51a-074b-4e73-bd4e-ca27788cde9f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/author/author_public.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/book/book_public.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AuthorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AuthorController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/BookController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/BookController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/author/author.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/author/author.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/author/authorId.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/author/authorId.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/author/authorbybiography.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/author/authorbybiography.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/author/insertauthor.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/author/insertauthor.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/book/book.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/book/book.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/book/bookId.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/book/bookId.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/book/deletebook.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/book/deletebook.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/book/insertbook.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/book/insertbook.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/common/_footer.hmtl.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/common/_footer.hmtl.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/common/_header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/common/_header.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Author.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Author.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Book.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Book.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/BookType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/BookType.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -25,7 +14,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution>
       <executable />
@@ -184,7 +173,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1574344789578</updated>
-      <workItem from="1574344790780" duration="61991000" />
+      <workItem from="1574344790780" duration="64130000" />
+      <workItem from="1575120377181" duration="2259000" />
     </task>
     <task id="LOCAL-00001" summary="maj">
       <created>1574781616897</created>
@@ -218,7 +208,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

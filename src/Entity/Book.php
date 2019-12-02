@@ -2,7 +2,9 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\BookRepository")
@@ -18,6 +20,7 @@ class Book
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(min=2, max=100, minMessage="Le titre doit au moins comporter 2 caractères", maxMessage="Le titre ne doit pas comporter plus de 100 caractères")
      */
     private $title;
 
@@ -35,6 +38,11 @@ class Book
      * @ORM\Column(type="boolean")
      */
     private $in_stock;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Author")
+     */
+    private $author;
 
     public function getId(): ?int
     {
@@ -88,4 +96,22 @@ class Book
 
         return $this;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getAuthor()
+    {
+        return $this->author;
+    }
+
+    /**
+     * @param mixed $author
+     */
+    public function setAuthor($author): void
+    {
+        $this->author = $author;
+    }
+
+
 }

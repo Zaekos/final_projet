@@ -3,6 +3,7 @@ namespace App\Controller;
 
 use App\Entity\Book;
 use App\Form\BookType;
+use App\Repository\AuthorRepository;
 use App\Repository\BookRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -124,21 +125,29 @@ class BookController extends AbstractController
         ]);
     }
     /**
-     * @Route("/admin/book/update/{id}", name="book_update")
+     * @Route("/admin/book/update", name="book_update")
      */
-    public function updateBook(BookRepository $bookRepository, EntityManagerInterface $entityManager, $id)
+    public function updateBook(BookRepository $bookRepository, EntityManagerInterface $entityManager, AuthorRepository $authorRepository)
     {
         // j'utilise le Repository de l'entité Book pour récupérer un livre
         //en fonction de son id
-        $book = $bookRepository->find($id);
+        $book = $bookRepository->find(24);
+        // Je récupère un auteur en fonction de son id
+        $author = $authorRepository->find(5);
          //Je donne un nouveau titre à mon entité Book
         $book->setTitle('Les 11 clés du succès');
         $book->setStyle('Magie');
+        // Dans mon livre, j'utilise le setter SetAuthor pour lui indiquer
+        // quel est l'auteur relié à ce livre (attention, je dois lui
+        // passer une entité author, et non juste un id)
+        $book->setAuthor($author);
          //je re-enregistre mon livre en BDD avec l'entité manager
         $entityManager->persist($book);
         $entityManager->flush();
 
        return $this->redirectToRoute('book');
+
+       dump('livre modifier'); die;
     }
 
 
