@@ -2,13 +2,10 @@ body {
     margin: 0;
     padding: 0;
 }
-h1 {
-    color: ;
-}
 header {
     padding: 10px;
     display: flex;
-    background-color: #F5871F;
+    background-color: #006480;
     justify-content: center;
 
 
@@ -18,11 +15,12 @@ main {
     flex-direction: column;
     text-align: center;
     padding: 100px;
-    background-color: aqua;
+    background-color: #4DD8FF;
     align-items: center;
 
 
 }
+
 .liste {
     background-color: white;
     width: 25%;
@@ -119,5 +117,5 @@ footer {
     display: flex;
     justify-content: space-around;
     padding: 10px;
-    background-color: #F5871F;
+    background-color: #006480;
 }
