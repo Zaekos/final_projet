@@ -104,11 +104,17 @@ class AuthorController extends AbstractController
 
 
     }
-    // pouvoir supprimer un book en bdd
+    // Pouvoir supprimer un author en bdd
     /**
+     * Commentaire qui est une annotation et qui permet de créer
+     * une url "/article" qui appelle la méthode "deleteauthor"
+     *
      * @Route("/admin/author/delete{id}", name="author_delete")
      */
-    public function deleteBook(AuthorRepository $authorRepository, EntityManagerInterface $entityManager, $id)
+    //J'utilise le repository de Author pour pouvoir selectionner tous les élèments de ma table Author
+    //Les repositorys en général servent à faire les requêtes select dans les tables
+    //EntityManager : Une classe qui contient des methodes pour acceder en ecriture à la base de données
+    public function deleteAuthor(AuthorRepository $authorRepository, EntityManagerInterface $entityManager, $id)
     {
         $title = 'Suppression de l\'auteur';
         // Je récupère un enregistrement author en BDD grâce au repository de author
@@ -126,7 +132,7 @@ class AuthorController extends AbstractController
      */
     public function updateAuthor(AuthorRepository $authorRepository, EntityManagerInterface $entityManager, $id)
     {
-        // j'utilise le Repository de l'entité Book pour récupérer un livre
+        // j'utilise le Repository de l'entité Author pour récupérer un auteur
         // en fonction de son id
         $author = $authorRepository->find($id);
         // Je donne un nouveau titre à mon entité Book
@@ -185,10 +191,22 @@ class AuthorController extends AbstractController
     /**
      * @Route("/admin/author/update_form/{id}", name="author_update_form")
      */
-    public function updateAuthorForm(AuthorRepository $authorRepository, Request $request, EntityManagerInterface $entityManager, $id)
+    //J'utilise le repository de Author pour pouvoir selectionner tous les élèments de ma table Author
+    //Les repositorys en général servent à faire les requêtes select dans les tables
+    //Request : info qui transit entre le front et le back
+    //EntityManager : Une classe qui contient des methodes pour acceder en ecriture à la base de données
+
+    public function updateAuthorForm(AuthorRepository $authorRepository,
+                                     Request $request,
+                                     EntityManagerInterface $entityManager, $id)
     {
         $title = 'Formulaire de mis à jour d\un auteur';
+        // j'utilise le Repository de l'entité Author pour récupérer un auteur
+        // en fonction de son id
         $author = $authorRepository->find($id);
+        // J'utilise la méthode createForm pour créer le gabarit / le constructeur de
+        // formulaire pour le Author : AuthorType (que j'ai généré en ligne de commandes)
+        // Et je lui associe mon entité Author vide
         $authorForm = $this->createForm(AuthorType::class, $author);
         if ($request->isMethod('Post'))
         {
