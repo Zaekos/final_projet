@@ -2,7 +2,8 @@
     {% block content %}
         {% for authorid in author %}
             <div class="liste">
-                <p><a href="{{ path ('authorid', {'id':authorid.id}) }}"> {{ authorid.name }} {{ authorid.firstName }}</p></a>
+                <p><a href="{{ path ('authorid', {'id':authorid.id}) }}">
+                        {{ authorid.name }} {{ authorid.firstName }}</p></a>
                     <div class="liste">
                         <a href="{{ path ('author_delete', {'id':authorid.id}) }}">Supprimer</a>
                     </div>
